@@ -1,5 +1,6 @@
 package arrays;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -40,7 +41,7 @@ public class IntegerArrayUtils {
         System.out.println();
     }
 
-    private static int getInteger() throws Exception {
+    private static int getInteger(){
         Scanner scanner = new Scanner(System.in);
         int integer;
         boolean error = false;
@@ -49,12 +50,12 @@ public class IntegerArrayUtils {
                 integer = scanner.nextInt();
                 error = true;
                 return integer;
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 scanner.next();
                 System.out.println("Type integer value!");
             }
         }
-        throw new Exception();
+        throw new InputMismatchException();
     }
 
 }
