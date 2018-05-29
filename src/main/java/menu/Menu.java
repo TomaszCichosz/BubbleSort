@@ -21,46 +21,56 @@ public class Menu {
                     case 1:
                         while (!exitFromSubMenu) {
                             MenuUtils.subMenuInformation();
-                            decision = scanner.nextInt();
-                            switch (decision) {
-                                case 1:
-                                    IntegerArrayUtils.arrayCreator(integerArray);
-                                    break;
-                                case 2:
-                                    BubbleSort.bubbleSort(integerArray);
-                                    break;
-                                case 3:
-                                    IntegerArrayUtils.printArray(integerArray);
-                                    break;
-                                case 0:
-                                    exitFromSubMenu = true;
-                                    break;
-                                default:
-                                    MenuUtils.errorMessage();
-                                    break;
+                            try {
+                                decision = scanner.nextInt();
+                                switch (decision) {
+                                    case 1:
+                                        IntegerArrayUtils.arrayCreator(integerArray);
+                                        break;
+                                    case 2:
+                                        BubbleSort.bubbleSort(integerArray);
+                                        break;
+                                    case 3:
+                                        IntegerArrayUtils.printArray(integerArray);
+                                        break;
+                                    case 0:
+                                        exitFromSubMenu = true;
+                                        break;
+                                    default:
+                                        MenuUtils.errorMessage();
+                                        break;
+                                }
+                            } catch (Exception e) {
+                                scanner.next();
+                                MenuUtils.errorMessage();
                             }
                         }
                         break;
                     case 2:
                         while (!exitFromSubMenu) {
                             MenuUtils.subMenuInformation();
-                            decision = scanner.nextInt();
-                            switch (decision) {
-                                case 1:
-                                    IntegerArrayUtils.randomArrayCreator(randomIntegerArray);
-                                    break;
-                                case 2:
-                                    BubbleSort.bubbleSort(randomIntegerArray);
-                                    break;
-                                case 3:
-                                    IntegerArrayUtils.printArray(randomIntegerArray);
-                                    break;
-                                case 0:
-                                    exitFromSubMenu = true;
-                                    break;
-                                default:
-                                    MenuUtils.errorMessage();
-                                    break;
+                            try {
+                                decision = scanner.nextInt();
+                                switch (decision) {
+                                    case 1:
+                                        IntegerArrayUtils.randomArrayCreator(randomIntegerArray);
+                                        break;
+                                    case 2:
+                                        BubbleSort.bubbleSort(randomIntegerArray);
+                                        break;
+                                    case 3:
+                                        IntegerArrayUtils.printArray(randomIntegerArray);
+                                        break;
+                                    case 0:
+                                        exitFromSubMenu = true;
+                                        break;
+                                    default:
+                                        MenuUtils.errorMessage();
+                                        break;
+                                }
+                            } catch (Exception e) {
+                                scanner.next();
+                                MenuUtils.errorMessage();
                             }
                         }
                         break;
