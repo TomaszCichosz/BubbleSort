@@ -5,25 +5,23 @@ import java.util.Scanner;
 
 public class IntegerArrayUtils {
 
-    public static IntegerArray arrayCreator(IntegerArray integerArray) {
-        Scanner scanner = new Scanner(System.in);
+    public static IntegerArray arrayCreator(IntegerArray integerArray) throws Exception {
         System.out.println("Array size:");
-        integerArray.array = new int[scanner.nextInt()];
+        integerArray.array = new int[getInteger()];
         System.out.println("Values:");
         for (int i = 0; i < integerArray.array.length; i++) {
-            integerArray.array[i] = scanner.nextInt();
+            integerArray.array[i] = getInteger();
         }
         return integerArray;
     }
 
-    public static IntegerArray randomArrayCreator(IntegerArray integerArray) {
-        Scanner scanner = new Scanner(System.in);
+    public static IntegerArray randomArrayCreator(IntegerArray integerArray) throws Exception {
         System.out.println("Array size:");
-        integerArray.array = new int[scanner.nextInt()];
+        integerArray.array = new int[getInteger()];
         System.out.println("Minimal value:");
-        int min = scanner.nextInt();
+        int min = getInteger();
         System.out.println("Maximal value:");
-        int max = scanner.nextInt();
+        int max = getInteger();
         Random generator = new Random();
         for (int i = 0; i < integerArray.array.length; i++) {
             integerArray.array[i] = generator.nextInt((max - min) + 1) + min;
@@ -40,6 +38,23 @@ public class IntegerArrayUtils {
             System.out.print(i + " ");
         }
         System.out.println();
+    }
+
+    private static int getInteger() throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        int integer;
+        boolean error = false;
+        while (!error) {
+            try {
+                integer = scanner.nextInt();
+                error = true;
+                return integer;
+            } catch (Exception e) {
+                scanner.next();
+                System.out.println("Type integer value!");
+            }
+        }
+        throw new Exception();
     }
 
 }
