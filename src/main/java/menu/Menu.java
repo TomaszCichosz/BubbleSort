@@ -27,7 +27,6 @@ public class Menu {
                     MenuUtils.errorMessage();
                     break;
             }
-
         }
     }
 
