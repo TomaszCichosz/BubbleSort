@@ -1,90 +1,34 @@
 package menu;
 
-import arrays.BubbleSort;
-import arrays.IntegerArray;
-import arrays.IntegerArrayUtils;
-
-import java.util.Scanner;
+import integerGetter.GetInteger;
+import menu.subMenus.SubMenuOne;
+import menu.subMenus.SubMenuTwo;
 
 public class Menu {
+
     public static void menuStart() {
-        IntegerArray integerArray = new IntegerArray();
-        IntegerArray randomIntegerArray = new IntegerArray();
-        Scanner scanner = new Scanner(System.in);
+        int[] integerArray = new int[]{};
+        int[] randomIntegerArray = new int[]{};
         boolean exit = false;
         while (!exit) {
-            boolean exitFromSubMenu = false;
             MenuUtils.mainMenuInformation();
-            try {
-                int decision = scanner.nextInt();
-                switch (decision) {
-                    case 1:
-                        while (!exitFromSubMenu) {
-                            MenuUtils.subMenuInformation();
-                            try {
-                                decision = scanner.nextInt();
-                                switch (decision) {
-                                    case 1:
-                                        IntegerArrayUtils.arrayCreator(integerArray);
-                                        break;
-                                    case 2:
-                                        BubbleSort.bubbleSort(integerArray);
-                                        break;
-                                    case 3:
-                                        IntegerArrayUtils.printArray(integerArray);
-                                        break;
-                                    case 0:
-                                        exitFromSubMenu = true;
-                                        break;
-                                    default:
-                                        MenuUtils.errorMessage();
-                                        break;
-                                }
-                            } catch (Exception e) {
-                                scanner.next();
-                                MenuUtils.errorMessage();
-                            }
-                        }
-                        break;
-                    case 2:
-                        while (!exitFromSubMenu) {
-                            MenuUtils.subMenuInformation();
-                            try {
-                                decision = scanner.nextInt();
-                                switch (decision) {
-                                    case 1:
-                                        IntegerArrayUtils.randomArrayCreator(randomIntegerArray);
-                                        break;
-                                    case 2:
-                                        BubbleSort.bubbleSort(randomIntegerArray);
-                                        break;
-                                    case 3:
-                                        IntegerArrayUtils.printArray(randomIntegerArray);
-                                        break;
-                                    case 0:
-                                        exitFromSubMenu = true;
-                                        break;
-                                    default:
-                                        MenuUtils.errorMessage();
-                                        break;
-                                }
-                            } catch (Exception e) {
-                                scanner.next();
-                                MenuUtils.errorMessage();
-                            }
-                        }
-                        break;
-                    case 0:
-                        exit = true;
-                        break;
-                    default:
-                        MenuUtils.errorMessage();
-                        break;
-                }
-            } catch (Exception e) {
-                scanner.next();
-                MenuUtils.errorMessage();
+            int decision = GetInteger.getInteger();
+            switch (decision) {
+                case 1:
+                    integerArray = SubMenuOne.subMenuOne(integerArray);
+                    break;
+                case 2:
+                    randomIntegerArray = SubMenuTwo.subMenuTwo(randomIntegerArray);
+                    break;
+                case 0:
+                    exit = true;
+                    break;
+                default:
+                    MenuUtils.errorMessage();
+                    break;
             }
+
         }
     }
+
 }

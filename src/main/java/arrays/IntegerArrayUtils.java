@@ -1,61 +1,44 @@
 package arrays;
 
-import java.util.InputMismatchException;
+import integerGetter.GetInteger;
+
 import java.util.Random;
-import java.util.Scanner;
 
 public class IntegerArrayUtils {
 
-    public static IntegerArray arrayCreator(IntegerArray integerArray) throws Exception {
+    public static int[] arrayCreator() {
         System.out.println("Array size:");
-        integerArray.array = new int[getInteger()];
+        int [] array = new int[GetInteger.getInteger()];
         System.out.println("Values:");
-        for (int i = 0; i < integerArray.array.length; i++) {
-            integerArray.array[i] = getInteger();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = GetInteger.getInteger();
         }
-        return integerArray;
+        return array;
     }
 
-    public static IntegerArray randomArrayCreator(IntegerArray integerArray) throws Exception {
+    public static int[] randomArrayCreator() {
         System.out.println("Array size:");
-        integerArray.array = new int[getInteger()];
+        int [] array = new int[GetInteger.getInteger()];
         System.out.println("Minimal value:");
-        int min = getInteger();
+        int min = GetInteger.getInteger();
         System.out.println("Maximal value:");
-        int max = getInteger();
+        int max = GetInteger.getInteger();
         Random generator = new Random();
-        for (int i = 0; i < integerArray.array.length; i++) {
-            integerArray.array[i] = generator.nextInt((max - min) + 1) + min;
+        for (int i = 0; i < array.length; i++) {
+            array[i] = generator.nextInt((max - min) + 1) + min;
         }
-        return integerArray;
+        return array;
     }
 
-    public static void printArray(IntegerArray integerArray) {
+    public static void printArray(int[] array) {
         System.out.println("Array:");
-        if (integerArray.array.length == 0) {
+        if (array.length == 0) {
             System.out.println("empty");
         }
-        for (int i : integerArray.array) {
+        for (int i : array) {
             System.out.print(i + " ");
         }
         System.out.println();
-    }
-
-    private static int getInteger(){
-        Scanner scanner = new Scanner(System.in);
-        int integer;
-        boolean error = false;
-        while (!error) {
-            try {
-                integer = scanner.nextInt();
-                error = true;
-                return integer;
-            } catch (InputMismatchException e) {
-                scanner.next();
-                System.out.println("Type integer value!");
-            }
-        }
-        throw new InputMismatchException();
     }
 
 }

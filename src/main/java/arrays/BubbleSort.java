@@ -2,18 +2,18 @@ package arrays;
 
 public class BubbleSort {
 
-    public static IntegerArray bubbleSort(IntegerArray integerArray) {
-        for (int i = 0; i < integerArray.array.length; i++) {
+    public static int[] bubbleSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
             boolean isSwapped = false;
-            for (int j = 0; j < integerArray.array.length - i - 1; j++) {
-                if (integerArray.array[j] > integerArray.array[j + 1]) {
-                    swap(integerArray.array, j, j + 1);
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    swap(array, j, j + 1);
                     isSwapped = true;
                 }
             }
-            if (!isSwapped) return integerArray;
+            if (!isSwapped) return array;
         }
-        return integerArray;
+        return array;
     }
 
     private static void swap(int[] array, int firstIndex, int secondIndex) {
