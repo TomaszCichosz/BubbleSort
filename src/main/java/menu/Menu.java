@@ -1,26 +1,31 @@
 package menu;
 
-import integerGetter.GetInteger;
-import menu.subMenus.SubMenuOne;
-import menu.subMenus.SubMenuTwo;
+import Utils.ScannerUtils;
+import menu.subMenus.SubMenuManual;
+import menu.subMenus.SubMenuRandom;
 
 public class Menu {
 
     public static void menuStart() {
+        final int MANUAL_OPTION = 1;
+        final int RANDOM_OPTION = 2;
+        final int EXIT_OPTION = 3;
+
         int[] integerArray = new int[]{};
         int[] randomIntegerArray = new int[]{};
         boolean exit = false;
+
         while (!exit) {
             MenuUtils.mainMenuInformation();
-            int decision = GetInteger.getInteger();
+            int decision = ScannerUtils.getInteger();
             switch (decision) {
-                case 1:
-                    integerArray = SubMenuOne.subMenuOne(integerArray);
+                case MANUAL_OPTION:
+                    integerArray = SubMenuManual.subMenuManual(integerArray);
                     break;
-                case 2:
-                    randomIntegerArray = SubMenuTwo.subMenuTwo(randomIntegerArray);
+                case RANDOM_OPTION:
+                    randomIntegerArray = SubMenuRandom.subMenuRandom(randomIntegerArray);
                     break;
-                case 0:
+                case EXIT_OPTION:
                     exit = true;
                     break;
                 default:

@@ -1,9 +1,9 @@
-package integerGetter;
+package Utils;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class GetInteger {
+public class ScannerUtils {
 
     public static int getInteger() {
         Scanner scanner = new Scanner(System.in);

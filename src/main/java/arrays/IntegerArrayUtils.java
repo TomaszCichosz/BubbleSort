@@ -1,6 +1,6 @@
 package arrays;
 
-import integerGetter.GetInteger;
+import Utils.ScannerUtils;
 
 import java.util.Random;
 
@@ -8,21 +8,21 @@ public class IntegerArrayUtils {
 
     public static int[] arrayCreator() {
         System.out.println("Array size:");
-        int [] array = new int[GetInteger.getInteger()];
+        int [] array = new int[ScannerUtils.getInteger()];
         System.out.println("Values:");
         for (int i = 0; i < array.length; i++) {
-            array[i] = GetInteger.getInteger();
+            array[i] = ScannerUtils.getInteger();
         }
         return array;
     }
 
     public static int[] randomArrayCreator() {
         System.out.println("Array size:");
-        int [] array = new int[GetInteger.getInteger()];
+        int [] array = new int[ScannerUtils.getInteger()];
         System.out.println("Minimal value:");
-        int min = GetInteger.getInteger();
+        int min = ScannerUtils.getInteger();
         System.out.println("Maximal value:");
-        int max = GetInteger.getInteger();
+        int max = ScannerUtils.getInteger();
         Random generator = new Random();
         for (int i = 0; i < array.length; i++) {
             array[i] = generator.nextInt((max - min) + 1) + min;

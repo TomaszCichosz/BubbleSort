@@ -2,25 +2,25 @@ package menu.subMenus;
 
 import arrays.BubbleSort;
 import arrays.IntegerArrayUtils;
-import integerGetter.GetInteger;
+import Utils.ScannerUtils;
 
-public class SubMenuOne {
+public class SubMenuRandom {
 
-    public static int[] subMenuOne(int[] integerArray) {
+    public static int[] subMenuRandom(int[] randomIntegerArray) {
         int decision;
         boolean exitFromSubMenu = false;
         while (!exitFromSubMenu) {
             SubMenuUtils.subMenuInformation();
-            decision = GetInteger.getInteger();
+            decision = ScannerUtils.getInteger();
             switch (decision) {
                 case 1:
-                    integerArray = IntegerArrayUtils.arrayCreator();
+                    randomIntegerArray = IntegerArrayUtils.randomArrayCreator();
                     break;
                 case 2:
-                    integerArray = BubbleSort.bubbleSort(integerArray);
+                    randomIntegerArray = BubbleSort.bubbleSort(randomIntegerArray);
                     break;
                 case 3:
-                    IntegerArrayUtils.printArray(integerArray);
+                    IntegerArrayUtils.printArray(randomIntegerArray);
                     break;
                 case 0:
                     exitFromSubMenu = true;
@@ -30,7 +30,7 @@ public class SubMenuOne {
                     break;
             }
         }
-        return integerArray;
+        return randomIntegerArray;
     }
 
 }
