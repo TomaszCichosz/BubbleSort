@@ -9,7 +9,7 @@ public class Menu {
     public static void menuStart() {
         final int MANUAL_OPTION = 1;
         final int RANDOM_OPTION = 2;
-        final int EXIT_OPTION = 3;
+        final int EXIT_OPTION = 0;
 
         int[] integerArray = new int[]{};
         int[] randomIntegerArray = new int[]{};
