@@ -20,10 +20,10 @@ public class Menu {
             int decision = ScannerUtils.getInteger();
             switch (decision) {
                 case MANUAL_OPTION:
-                    integerArray = SubMenuManual.subMenuManual(integerArray);
+                    integerArray = SubMenuManual.menu(integerArray);
                     break;
                 case RANDOM_OPTION:
-                    randomIntegerArray = SubMenuRandom.subMenuRandom(randomIntegerArray);
+                    randomIntegerArray = SubMenuRandom.menu(randomIntegerArray);
                     break;
                 case EXIT_OPTION:
                     exit = true;

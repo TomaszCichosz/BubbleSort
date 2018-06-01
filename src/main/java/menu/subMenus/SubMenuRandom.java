@@ -6,23 +6,29 @@ import Utils.ScannerUtils;
 
 public class SubMenuRandom {
 
-    public static int[] subMenuRandom(int[] randomIntegerArray) {
+    public static int[] menu(int[] randomIntegerArray) {
+        final int CREATE_OPTION = 1;
+        final int SORT_OPTION = 2;
+        final int PRINT_OPTION = 3;
+        final int EXIT_OPTION = 0;
+
         int decision;
         boolean exitFromSubMenu = false;
+
         while (!exitFromSubMenu) {
             SubMenuUtils.subMenuInformation();
             decision = ScannerUtils.getInteger();
             switch (decision) {
-                case 1:
+                case CREATE_OPTION:
                     randomIntegerArray = IntegerArrayUtils.randomArrayCreator();
                     break;
-                case 2:
-                    randomIntegerArray = BubbleSort.bubbleSort(randomIntegerArray);
+                case SORT_OPTION:
+                    randomIntegerArray = BubbleSort.sort(randomIntegerArray);
                     break;
-                case 3:
+                case PRINT_OPTION:
                     IntegerArrayUtils.printArray(randomIntegerArray);
                     break;
-                case 0:
+                case EXIT_OPTION:
                     exitFromSubMenu = true;
                     break;
                 default:

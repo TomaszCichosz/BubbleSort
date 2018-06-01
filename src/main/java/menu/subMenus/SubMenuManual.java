@@ -6,23 +6,29 @@ import Utils.ScannerUtils;
 
 public class SubMenuManual {
 
-    public static int[] subMenuManual(int[] integerArray) {
+    public static int[] menu(int[] integerArray) {
+        final int CREATE_OPTION = 1;
+        final int SORT_OPTION = 2;
+        final int PRINT_OPTION = 3;
+        final int EXIT_OPTION = 0;
+
         int decision;
         boolean exitFromSubMenu = false;
+
         while (!exitFromSubMenu) {
             SubMenuUtils.subMenuInformation();
             decision = ScannerUtils.getInteger();
             switch (decision) {
-                case 1:
+                case CREATE_OPTION:
                     integerArray = IntegerArrayUtils.arrayCreator();
                     break;
-                case 2:
-                    integerArray = BubbleSort.bubbleSort(integerArray);
+                case SORT_OPTION:
+                    integerArray = BubbleSort.sort(integerArray);
                     break;
-                case 3:
+                case PRINT_OPTION:
                     IntegerArrayUtils.printArray(integerArray);
                     break;
-                case 0:
+                case EXIT_OPTION:
                     exitFromSubMenu = true;
                     break;
                 default:
