@@ -2,7 +2,7 @@ package menu.subMenus;
 
 import arrays.BubbleSort;
 import arrays.IntegerArrayUtils;
-import Utils.ScannerUtils;
+import utils.ScannerUtils;
 
 public class SubMenuRandom {
 

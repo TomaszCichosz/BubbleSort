@@ -1,6 +1,6 @@
 package arrays;
 
-import Utils.ScannerUtils;
+import utils.ScannerUtils;
 
 import java.util.Random;
 

@@ -1,6 +1,6 @@
 package menu;
 
-import Utils.ScannerUtils;
+import utils.ScannerUtils;
 import menu.subMenus.SubMenuManual;
 import menu.subMenus.SubMenuRandom;
 
